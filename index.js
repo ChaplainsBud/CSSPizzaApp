@@ -16,6 +16,10 @@ let top2 = document.querySelector("#ing2");
 let top3 = document.querySelector("#ing3");
 let top4 = document.querySelector("#ing4");
 
+// put this in a form? can I use the same form for two functions?
+let pd = document.querySelector("#price-display");
+// pd.innerHTML = "price" ... according to array of checkboxes?
+// if nodelist == 2, 5; 3, 5.50; 4, 6.
 
 let menuForm = document.querySelector("#form1");
 menuForm.addEventListener("change", (e)=> {
@@ -81,12 +85,25 @@ menuForm3.addEventListener("change", (e)=> {
        console.log("not cheesy");
        CHEESE.style.visibility = "hidden";
      } else if (xtrche.checked == true) {
-       console.log("extra cheesy")
+       console.log("extra cheesy");
       CHEESE.style.visibility = "visible";
       CHEESE.style.backgroundColor = "gold";
      }
   }
 });
+
+function priceChanger() {
+  let counter = document.querySelectorAll('input[type="checkbox"]:checked').length;
+  if(counter == 2) {
+    pd.innerHTML = "Price: $5.00";
+  } else if (counter == 3){
+    pd.innerHTML = "Price: $5.50";
+  } else if (counter == 4){
+    pd.innerHTML = "Price: $6.00";
+  } else {
+    console.log("testing priceChanger");
+  }
+}
 
 // Sunday Afternoon Below:
 // First Bug: only "tomatoes show works" / Second Bug: Footer blocks Bacon
@@ -109,14 +126,14 @@ menuForm4.addEventListener("change", (e)=> {
   }
 });
 
-// 4 Conditionals Toggling on/off
-// BUG: Ingredient Stays Checked when going back to Dough...
+
 
 spi.addEventListener("change", (e) => {
   if (spi.checked == true) {
     console.log("tomatoes");
     top1.style.visibility = "visible";
     top1.src = "https://res.cloudinary.com/a-name-not-already-taken/image/upload/v1583622483/spinach.png";
+    priceChanger();
   } else {
     console.log("no spinach");
     top1.style.visibility = "hidden";
@@ -128,6 +145,7 @@ tom.addEventListener("change", (e) => {
     console.log("mushrooms");
     top2.style.visibility = "visible";
     top2.src = "https://res.cloudinary.com/a-name-not-already-taken/image/upload/v1583622483/tomatoes.png";
+     priceChanger();
   } else {
     console.log("no tomatoes");
     top2.style.visibility = "hidden";
@@ -139,6 +157,7 @@ bac.addEventListener("change", (e) => {
     console.log("spinach");
     top3.style.visibility = "visible";
     top3.src = "https://res.cloudinary.com/a-name-not-already-taken/image/upload/v1583622483/bacon.png";
+    priceChanger();
   } else {
     console.log("no bacon");
     top3.style.visibility = "hidden";
@@ -150,6 +169,7 @@ mus.addEventListener("change", (e) => {
     console.log("bacon");
     top4.style.visibility = "visible";
     top4.src = "https://res.cloudinary.com/a-name-not-already-taken/image/upload/v1583622483/mushroom.png";
+     priceChanger();
   } else {
     console.log("no mushrooms");
     top4.style.visibility = "hidden";
@@ -160,20 +180,18 @@ mus.addEventListener("change", (e) => {
 
 
 
+  // local var experiment below;
+    // let listLength = input[type="check"]:checked.length;
+    // let newPrice = listLength *.50 + 4.00
+    // pd.innerHTML = `${newPrice}`;
+    // local var experiement above;
+//   if (input[type="checkbox"]:checked.length == 2) {
+//   pd.innerHTML = "$5.00";
+// } else if (input[type="checkbox"]:checked.length == 3) {
+//   pd.innerHTML = "$5.50";
+// } else if (input[type="checkbox"]:checked.length == 4) {
+//   pd.innerHTML = "$6.00";
+// }
 
 
-
-
-
-
-
-// tom/mus/spi/bacon
-
-// Sunday Afternoon Above:  3/8/20
-
-// below: four values for toppings:
-
-// <img id="ing1" src="https://res.cloudinary.com/a-name-not-already-taken/image/upload/v1583622483/spinach.png" alt="topping">
-//           <img id="ing2" src="https://res.cloudinary.com/a-name-not-already-taken/image/upload/v1583622483/tomatoes.png" alt="topping">
-//           <img id="ing3" src="https://res.cloudinary.com/a-name-not-already-taken/image/upload/v1583622483/bacon.png" alt="topping">
-//           <img id="ing4" src="https://res.cloudinary.com/a-name-not-already-taken/image/upload/v1583622483/mushroom.png" alt="topping">
+// console.log(document.querySelectorAll('input[type="checkbox"]:checked').length

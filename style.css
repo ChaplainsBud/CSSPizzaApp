@@ -30,10 +30,15 @@ main {
 }
 
 aside {
+  padding: 20px;
   height: 100vh;
   background-color: white;
   font-family: 'Quicksand', sans-serif;
   background-color: rgba(252, 236, 212, 1);
+}
+
+#price-display {
+   float: right;
 }
 
 li {
