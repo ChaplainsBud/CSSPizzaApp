@@ -11,6 +11,10 @@ let mar = document.querySelector("#mar");
 let che = document.querySelector("#che");
 let noche = document.querySelector("#noche");
 let xtrche = document.querySelector("#xtrche");
+let top1 = document.querySelector("#ing1");
+let top2 = document.querySelector("#ing2");
+let top3 = document.querySelector("#ing3");
+let top4 = document.querySelector("#ing4");
 
 
 let menuForm = document.querySelector("#form1");
@@ -35,6 +39,9 @@ menuForm2.addEventListener("change", (e)=> {
   e.preventDefault();
 if(cau.checked == false && who.checked == false && tra.checked == false) {
     alert("must start with dough");
+    cur.checked = false;
+    cre.checked = false;
+    mar.checked = false;
     // reset to unchecked radio
 
   } else if (cau.checked == true || who.checked == true || tra.checked == true) {
@@ -62,6 +69,9 @@ menuForm3.addEventListener("change", (e)=> {
   && cur.checked == false && cre.checked == false && mar.checked == false){
    alert("you must check dough and sauce first");
   // reset to unchecked radio
+    che.checked = false;
+    noche.checked = false;
+    xtrche.checked = false;
   } else if (cur.checked == true || cre.checked == true || mar.checked == true) {
      if(che.checked == true) {
        console.log("cheesy");
@@ -78,34 +88,88 @@ menuForm3.addEventListener("change", (e)=> {
   }
 });
 
+// Sunday Afternoon Below:
+// First Bug: only "tomatoes show works" / Second Bug: Footer blocks Bacon
+let menuForm4 = document.querySelector("#form4");
+menuForm4.addEventListener("change", (e)=> {
+  e.preventDefault();
+  if(cau.checked == false && who.checked == false && tra.checked == false
+  && cur.checked == false && cre.checked == false && mar.checked == false
+  && che.checked == false && noche.checked == false &&  xtrche.checked == false){
+    console.log("test");
+    alert("Dough, sauce, cheese, and then toppings.");
+    spi.checked = false;
+    top1.style.visibility = "hidden";
+    tom.checked = false;
+    top2.style.visibility = "hidden";
+    bac.checked = false;
+    top3.style.visibility = "hidden";
+    mus.checked = false;
+    top4.style.visibility = "hidden";
+  }
+});
+
+// 4 Conditionals Toggling on/off
+// BUG: Ingredient Stays Checked when going back to Dough...
+
+spi.addEventListener("change", (e) => {
+  if (spi.checked == true) {
+    console.log("tomatoes");
+    top1.style.visibility = "visible";
+    top1.src = "https://res.cloudinary.com/a-name-not-already-taken/image/upload/v1583622483/spinach.png";
+  } else {
+    console.log("no spinach");
+    top1.style.visibility = "hidden";
+  }
+});
+
+tom.addEventListener("change", (e) => {
+  if (tom.checked == true) {
+    console.log("mushrooms");
+    top2.style.visibility = "visible";
+    top2.src = "https://res.cloudinary.com/a-name-not-already-taken/image/upload/v1583622483/tomatoes.png";
+  } else {
+    console.log("no tomatoes");
+    top2.style.visibility = "hidden";
+  }
+});
+
+bac.addEventListener("change", (e) => {
+  if (bac.checked == true) {
+    console.log("spinach");
+    top3.style.visibility = "visible";
+    top3.src = "https://res.cloudinary.com/a-name-not-already-taken/image/upload/v1583622483/bacon.png";
+  } else {
+    console.log("no bacon");
+    top3.style.visibility = "hidden";
+  }
+});
+
+mus.addEventListener("change", (e) => {
+  if (mus.checked == true) {
+    console.log("bacon");
+    top4.style.visibility = "visible";
+    top4.src = "https://res.cloudinary.com/a-name-not-already-taken/image/upload/v1583622483/mushroom.png";
+  } else {
+    console.log("no mushrooms");
+    top4.style.visibility = "hidden";
+  }
+});
 
 
 
-// REQUIRE DOUGH FIRST? THEN SAUCE, THEN TOPPINGS?
-
-// how do I use radios above?
-
-// let menuForm2 = document.querySelector("form2");
-// menuForm.addEventListener("change", (e)=> {
-//   e.preventDefault();
-//   // if cur.checked
-//   // if cre.checked
-//   // if mar.checked
-
-// });
-
-
-// let menuForm3 = document.querySelector("form3");
-// menuForm.addEventListener("change", (e)=> {
-//   e.preventDefault();
-//  // combine all toppings, like photo one earlier
-// });
 
 
 
 
 
 
+
+
+
+// tom/mus/spi/bacon
+
+// Sunday Afternoon Above:  3/8/20
 
 // below: four values for toppings:
 
